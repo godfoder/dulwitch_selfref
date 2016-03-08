@@ -33,10 +33,10 @@ with porcelain.open_repo_closing(".") as repo:
             sv_part = ref[11:].decode('ascii')
             if latest_version is None:
                 latest_version = sv_part
-                latest_version_ref = remote_refs.refs[ref]
+                latest_version_ref = remote_refs[ref]
             elif semver.compare(sv_part, latest_version) > 0:
                 latest_version = sv_part
-                latest_version_ref = remote_refs.refs[ref]
+                latest_version_ref = remote_refs[ref]
         elif ref == b"HEAD":            
             continue # Skip remote HEAD (only update to latest tagged)
 
