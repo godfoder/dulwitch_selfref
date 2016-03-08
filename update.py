@@ -53,6 +53,7 @@ with porcelain.open_repo_closing(".") as repo:
             pass
 
     if repo.refs[b"HEAD"] != latest_version_ref:
+        print("update HEAD to version {}, ref: {}".format(latest_version, latest_version_ref))
         repo.refs[b"HEAD"] = latest_version_ref
         dirty = True
 
